@@ -16,47 +16,49 @@ class LoginBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 30.w),
-      child: Column(
-        children: [
-          verticalSpace(15.h),
-          //welcome back
-          const TopSectionLogin(),
-          verticalSpace(25.h),
-          //login
-          AppTextFormField(
-            hintText: Strings.email,
-            validator: (String? value) {},
-          ),
-          verticalSpace(12.h),
-          //password
-          AppTextFormField(
-            hintText: Strings.password,
-            validator: (String? value) {},
-          ),
-          verticalSpace(14.h),
-          //password
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-              onPressed: () {},
-              child: Text(
-                Strings.forgetPass,
-                style: TextStyles.font12BlueRegular,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            verticalSpace(15.h),
+            //welcome back
+            const TopSectionLogin(),
+            verticalSpace(25.h),
+            //login
+            AppTextFormField(
+              hintText: Strings.email,
+              validator: (String? value) {},
+            ),
+            verticalSpace(12.h),
+            //password
+            AppTextFormField(
+              hintText: Strings.password,
+              validator: (String? value) {},
+            ),
+            verticalSpace(14.h),
+            //password
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  Strings.forgetPass,
+                  style: TextStyles.font12BlueRegular,
+                ),
               ),
             ),
-          ),
-          verticalSpace(18.h),
-          //login
-          AppTextButton(
-            buttonText: Strings.login,
-            textStyle: TextStyles.font16WhiteSemiBold,
-            onPressed: () {},
-          ),
-          verticalSpace(30.h),
-          const SectionTermsAndConditions(),
-          verticalSpace(12.h),
-          const SectionAlreadyHaveAnAccount(),
-        ],
+            verticalSpace(18.h),
+            //login
+            AppTextButton(
+              buttonText: Strings.login,
+              textStyle: TextStyles.font16WhiteSemiBold,
+              onPressed: () {},
+            ),
+            verticalSpace(30.h),
+            const SectionTermsAndConditions(),
+            verticalSpace(12.h),
+            const SectionAlreadyHaveAnAccount(),
+          ],
+        ),
       ),
     );
   }
