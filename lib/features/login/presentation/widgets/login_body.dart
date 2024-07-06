@@ -1,6 +1,5 @@
 import 'package:doc_doc/core/helpers/const_strings.dart';
 import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/core/theming/colors.dart';
 import 'package:doc_doc/core/theming/styles.dart';
 import 'package:doc_doc/core/widgets/custom_button.dart';
 import 'package:doc_doc/core/widgets/custom_text_field.dart';
@@ -9,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'section_already_have_an_acount.dart';
 import 'section_terms_and_conditions.dart';
+import 'top_section_login.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
@@ -21,22 +21,7 @@ class LoginBody extends StatelessWidget {
         children: [
           verticalSpace(15.h),
           //welcome back
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                Strings.welcomeBack,
-                style: TextStyles.font24BlackBold.copyWith(
-                  color: ColorsManager.mainBlue,
-                ),
-              ),
-              verticalSpace(10.h),
-              Text(
-                Strings.weAreExcited,
-                style: TextStyles.font14GrayRegular,
-              ),
-            ],
-          ),
+          const TopSectionLogin(),
           verticalSpace(25.h),
           //login
           AppTextFormField(
