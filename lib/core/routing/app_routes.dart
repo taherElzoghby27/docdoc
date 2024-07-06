@@ -1,4 +1,5 @@
 import 'package:doc_doc/core/routing/routes.dart';
+import 'package:doc_doc/features/login/presentation/views/login_view.dart';
 import 'package:doc_doc/features/on_boarding/presentation/screens/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class AppRouter {
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (context) => const Scaffold(),
+          builder: (context) => const LoginView(),
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(
