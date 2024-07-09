@@ -1,5 +1,8 @@
 import 'package:doc_doc/core/helpers/const_strings.dart';
+import 'package:doc_doc/core/helpers/extensions.dart';
+import 'package:doc_doc/core/routing/routes.dart';
 import 'package:doc_doc/core/theming/styles.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SectionAlreadyHaveAnAccount extends StatelessWidget {
@@ -16,6 +19,10 @@ class SectionAlreadyHaveAnAccount extends StatelessWidget {
             style: TextStyles.font13DarkBlueRegular,
           ),
           TextSpan(
+            recognizer: TapGestureRecognizer()
+              ..onTap = () => context.pushReplacementNamed(
+                    Routes.signUpScreen,
+                  ),
             text: Strings.signUp,
             style: TextStyles.font13BlueSemiBold,
           ),

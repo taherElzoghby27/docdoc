@@ -58,51 +58,55 @@ class _SectionEmailAndPasswordState extends State<SectionEmailAndPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        verticalSpace(25.h),
-        //login
-        AppTextFormField(
-          hintText: Strings.email,
-          validator: (String? value) {
-            if (value == null ||
-                value.isEmpty ||
-                AppRegex.isEmailValid(value)) {
-              return Strings.pleaseEnterValidEmail;
-            }
-            return null;
-          },
-        ),
-        verticalSpace(12.h),
-        //password
-        AppTextFormField(
-          hintText: Strings.password,
-          isObscureText: isObscureText,
-          suffixIcon: IconButton(
-            onPressed: () => setState(() => isObscureText = !isObscureText),
-            icon: Icon(
-              isObscureText ? Icons.visibility_off : Icons.visibility,
-            ),
+    return Form(
+      key: context.read<LoginCubit>().formKey,
+      child: Column(
+        children: [
+          verticalSpace(25.h),
+          //login
+          AppTextFormField(
+            hintText: Strings.email,
+            validator: (String? value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isEmailValid(value)) {
+                return Strings.pleaseEnterValidEmail;
+              }
+              return null;
+            },
+            controller: context.read<LoginCubit>().emailController,
           ),
-          validator: (String? value) {
-            if (value == null || value.isEmpty) {
-              return Strings.pleaseEnterValidPassword;
-            }
-            return null;
-          },
-          controller: passwordEditingController,
-        ),
-        verticalSpace(14.h),
-        ValidatePassword(
-          hasLowerCase: hasLowercase,
-          hasUpperCase: hasUppercase,
-          hasSpecialCharacters: hasSpecialCharacters,
-          hasNumber: hasNumber,
-          hasMinLength: hasMinLength,
-        ),
-        verticalSpace(14.h),
-        const LoginBlocListener(),
-      ],
+          verticalSpace(12.h),
+          //password
+          AppTextFormField(
+            hintText: Strings.password,
+            isObscureText: isObscureText,
+            suffixIcon: IconButton(
+              onPressed: () => setState(() => isObscureText = !isObscureText),
+              icon: Icon(
+                isObscureText ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return Strings.pleaseEnterValidPassword;
+              }
+              return null;
+            },
+            controller: passwordEditingController,
+          ),
+          verticalSpace(14.h),
+          ValidatePassword(
+            hasLowerCase: hasLowercase,
+            hasUpperCase: hasUppercase,
+            hasSpecialCharacters: hasSpecialCharacters,
+            hasNumber: hasNumber,
+            hasMinLength: hasMinLength,
+          ),
+          verticalSpace(14.h),
+          const LoginBlocListener(),
+        ],
+      ),
     );
   }
 
