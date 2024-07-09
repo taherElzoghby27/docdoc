@@ -29,7 +29,7 @@ class _ApiService implements ApiService {
     _data.addAll(loginRequestBody.toJson());
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<LoginResponse>(Options(
-      method: 'GET',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )

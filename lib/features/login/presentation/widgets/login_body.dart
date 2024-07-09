@@ -41,7 +41,15 @@ class LoginBody extends StatelessWidget {
             AppTextButton(
               buttonText: Strings.login,
               textStyle: TextStyles.font16WhiteSemiBold,
-              onPressed: () => context.read<LoginCubit>().login(),
+              onPressed: () async {
+                if (context
+                    .read<LoginCubit>()
+                    .formKey
+                    .currentState!
+                    .validate()) {
+                  await context.read<LoginCubit>().login();
+                }
+              },
             ),
             verticalSpace(30.h),
             const SectionTermsAndConditions(),
