@@ -13,5 +13,5 @@ setupGetIt() async {
   //login repo
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   //login cubit
-  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 }
