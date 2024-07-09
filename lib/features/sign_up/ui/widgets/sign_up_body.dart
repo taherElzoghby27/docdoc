@@ -2,7 +2,9 @@ import 'package:doc_doc/core/helpers/const_strings.dart';
 import 'package:doc_doc/core/helpers/spacing.dart';
 import 'package:doc_doc/core/theming/styles.dart';
 import 'package:doc_doc/core/widgets/custom_button.dart';
+import 'package:doc_doc/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../login/presentation/widgets/section_terms_and_conditions.dart';
@@ -28,7 +30,15 @@ class SignUpBody extends StatelessWidget {
             AppTextButton(
               buttonText: Strings.signUp,
               textStyle: TextStyles.font16WhiteSemiBold,
-              onPressed: () async {},
+              onPressed: () async {
+                if (context
+                    .read<SignUpCubit>()
+                    .formKey
+                    .currentState!
+                    .validate()) {
+                  await context.read<SignUpCubit>().signUp();
+                }
+              },
             ),
             verticalSpace(30.h),
             const SectionTermsAndConditions(),

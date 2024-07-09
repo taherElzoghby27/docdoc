@@ -2,7 +2,7 @@ import 'package:doc_doc/core/helpers/app_regex.dart';
 import 'package:doc_doc/core/helpers/const_strings.dart';
 import 'package:doc_doc/core/helpers/spacing.dart';
 import 'package:doc_doc/core/widgets/custom_text_field.dart';
-import 'package:doc_doc/features/login/logic/cubit/login_cubit.dart';
+import 'package:doc_doc/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,8 +30,9 @@ class _SectionEmailAndPasswordState extends State<SectionInfoUser> {
   late TextEditingController passwordEditingController2;
   @override
   void initState() {
-    passwordEditingController1 = context.read<LoginCubit>().passwordController;
-    passwordEditingController2 = context.read<LoginCubit>().passwordController;
+    passwordEditingController1 = context.read<SignUpCubit>().passwordController;
+    passwordEditingController2 =
+        context.read<SignUpCubit>().passwordConfirmationController;
     setupPasswordControllerListener();
     super.initState();
   }
@@ -56,31 +57,12 @@ class _SectionEmailAndPasswordState extends State<SectionInfoUser> {
         );
       });
     });
-    passwordEditingController2.addListener(() {
-      setState(() {
-        hasLowercase = AppRegex.hasLowerCase(
-          passwordEditingController2.text,
-        );
-        hasUppercase = AppRegex.hasUpperCase(
-          passwordEditingController2.text,
-        );
-        hasSpecialCharacters = AppRegex.hasSpecialCharacter(
-          passwordEditingController2.text,
-        );
-        hasNumber = AppRegex.hasNumber(
-          passwordEditingController2.text,
-        );
-        hasMinLength = AppRegex.hasMinLength(
-          passwordEditingController2.text,
-        );
-      });
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<LoginCubit>().formKey,
+      key: context.read<SignUpCubit>().formKey,
       child: Column(
         children: [
           verticalSpace(25.h),
@@ -92,7 +74,7 @@ class _SectionEmailAndPasswordState extends State<SectionInfoUser> {
               }
               return null;
             },
-            //controller: context.read<LoginCubit>().emailController,
+            controller: context.read<SignUpCubit>().nameController,
           ),
           verticalSpace(12.h),
           AppTextFormField(
@@ -100,14 +82,12 @@ class _SectionEmailAndPasswordState extends State<SectionInfoUser> {
             validator: (String? value) {
               if (value == null ||
                   value.isEmpty ||
-                  AppRegex.isPhoneNumberValid(
-                    value,
-                  )) {
+                  !AppRegex.isPhoneNumberValid(value)) {
                 return Strings.pleaseEnterValidNum;
               }
               return null;
             },
-            //controller: context.read<LoginCubit>().emailController,
+            controller: context.read<SignUpCubit>().phoneController,
           ),
           verticalSpace(12.h),
           AppTextFormField(
@@ -120,7 +100,7 @@ class _SectionEmailAndPasswordState extends State<SectionInfoUser> {
               }
               return null;
             },
-            controller: context.read<LoginCubit>().emailController,
+            controller: context.read<SignUpCubit>().emailController,
           ),
           verticalSpace(12.h),
           //password
@@ -155,8 +135,12 @@ class _SectionEmailAndPasswordState extends State<SectionInfoUser> {
               ),
             ),
             validator: (String? value) {
-              if (value == null || value.isEmpty) {
+              if (value == null ||
+                  value.isEmpty ) {
                 return Strings.pleaseEnterValidPassword;
+              }
+              if(value != passwordEditingController1.text){
+                return Strings.passwordShouldBeSame;
               }
               return null;
             },
@@ -171,7 +155,7 @@ class _SectionEmailAndPasswordState extends State<SectionInfoUser> {
             hasMinLength: hasMinLength,
           ),
           verticalSpace(14.h),
-          const LoginBlocListener(),
+          const SignUpBlocListener(),
         ],
       ),
     );

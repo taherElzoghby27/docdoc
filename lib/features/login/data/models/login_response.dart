@@ -12,11 +12,12 @@ class LoginResponse {
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseFromJson(json);
 
-  LoginResponse(
-      {required this.message,
-      required this.userData,
-      required this.status,
-      required this.code});
+  LoginResponse({
+    required this.message,
+    required this.userData,
+    required this.status,
+    required this.code,
+  });
 }
 
 @JsonSerializable()

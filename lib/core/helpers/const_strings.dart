@@ -32,6 +32,7 @@ class Strings {
   static const String pleaseEnterValidNum = 'Please enter A valid number';
   static const String pleaseEnterValidPassword =
       'Please enter a valid password';
+  static const String passwordShouldBeSame = 'Password should be the same';
   static const String atLeast1LowerCaseLetter = 'At least 1 lowercase letter';
   static const String atLeast1UpperCase = 'At least 1 uppercase letter';
   static const String atLeast1SpecialLetter = 'At least 1 special character';
