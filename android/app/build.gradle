@@ -28,6 +28,7 @@ android {
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -42,6 +43,19 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
+    }
+    flavorDimensions "default"//if we need groups for flavors
+
+    productFlavors {
+        production {
+            dimension "default"
+            resValue "string", "app_name", "docdoc production"//app name -> docdoc production
+        }
+        development {
+            dimension "default"
+            resValue "string", "app_name", "docdoc development"//app name -> docdoc development
+            applicationIdSuffix ".dev"//add (.dev) in the end of applicationId in development mode
+        }
     }
 
     buildTypes {
