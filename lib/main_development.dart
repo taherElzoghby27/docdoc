@@ -17,7 +17,6 @@ void main() async {
     const SystemUiOverlayStyle(
       statusBarColor:
           ColorsManager.mainBlue, // Change this to your desired color
-      systemNavigationBarColor: Colors.orange,
     ),
   );
   runApp(
