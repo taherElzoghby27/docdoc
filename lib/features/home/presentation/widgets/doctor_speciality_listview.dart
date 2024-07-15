@@ -11,7 +11,7 @@ class DoctorSpecialityListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 130.h,
+      height: 150.h,
       child: ListView.builder(
         itemCount: 10,
         shrinkWrap: true,
