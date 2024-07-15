@@ -10,27 +10,46 @@ class HomeBlueContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 197.h,
+      height: 195.h,
       width: double.infinity,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          Image.asset('assets/images/background.png'),
-          Positioned(
-            bottom: 0,
-            left: 20.w,
+          Container(
+            height: 165.h,
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 16.h,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24.0),
+              image: const DecorationImage(
+                image: AssetImage('assets/images/background.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Book and\nschedule with\nnearest doctor',
                   style: TextStyles.font18WhiteMedium,
                 ),
                 verticalSpace(12.h),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Find Nearby',
-                    style: TextStyles.font12BlueRegular,
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(48.0),
+                      ),
+                    ),
+                    child: Text(
+                      'Find Nearby',
+                      style: TextStyles.font12BlueRegular,
+                    ),
                   ),
                 ),
                 verticalSpace(8.h),
@@ -38,9 +57,12 @@ class HomeBlueContainer extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 0,
-            right: 20.w,
-            child: Image.asset('assets/images/doctor.png'),
+            top: 0,
+            right: 10.w,
+            child: Image.asset(
+              'assets/images/doctor.png',
+              height: 200.h,
+            ),
           ),
         ],
       ),
