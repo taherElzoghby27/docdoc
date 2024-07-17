@@ -10,6 +10,12 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
   List<SpecializationModel> specializations = [];
   List<DoctorModel> doctors = [];
+  int currentPage = 0;
+  changeCurrentPage(int id) async {
+    currentPage = id;
+    await getDoctors(id: currentPage);
+  }
+
   //get specializations
   getSpecializations() async {
     emit(const HomeState.specializationsLoading());
@@ -21,6 +27,7 @@ class HomeCubit extends Cubit<HomeState> {
         emit(
           HomeState.specializationsSuccess(response),
         );
+        getDoctors(id: specializations.first.id);
       },
       failure: (errorModel) {
         emit(
@@ -30,7 +37,7 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  getDoctors(int id) async {
+  getDoctors({int id = 1}) async {
     emit(const HomeState.doctorsLoading());
     doctors = await getSpecializationsForDoctors(id);
     emit(HomeState.doctorsSuccess(doctors));
