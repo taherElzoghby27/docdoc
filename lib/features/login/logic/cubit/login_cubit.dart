@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:doc_doc/core/helpers/constants.dart';
 import 'package:doc_doc/core/helpers/shared_pref.dart';
+import 'package:doc_doc/core/networking/dio_factory.dart';
 import 'package:doc_doc/features/login/data/models/login_request_body.dart';
 import 'package:doc_doc/features/login/data/repos/login_repo.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class LoginCubit extends Cubit<LoginState> {
     result.when(
       success: (loginResponse) async {
         await saveToken(loginResponse.userData.token);
+        DioFactory.setTokenToHeaders(loginResponse.userData.token);
         emit(LoginState.success(loginResponse));
       },
       failure: (errorModel) {

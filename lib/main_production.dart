@@ -14,6 +14,7 @@ void main() async {
   setupGetIt();
   //to fix issue with text being hidden bug in flutter_screenutil in release mode
   await ScreenUtil.ensureScreenSize();
+  checkUserIfLoggedOrNot();
   runApp(
     DocApp(
       appRouter: AppRouter(),
