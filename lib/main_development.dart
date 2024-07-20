@@ -1,3 +1,6 @@
+import 'package:doc_doc/core/helpers/constants.dart';
+import 'package:doc_doc/core/helpers/extensions.dart';
+import 'package:doc_doc/core/helpers/shared_pref.dart';
 import 'package:doc_doc/core/routing/app_routes.dart';
 import 'package:doc_doc/core/theming/colors.dart';
 import 'package:doc_doc/doc_app.dart';
@@ -24,4 +27,14 @@ void main() async {
       appRouter: AppRouter(),
     ),
   );
+}
+checkUserIfLoggedOrNot() async {
+  String? token = await SharedPrefHelper.getSecuredString(
+    SharedPrefKeys.userToken,
+  );
+  if(token.isNullOrEmpty()){
+    isLoggedInUser=false;
+  }else{
+    isLoggedInUser=true;
+  }
 }
