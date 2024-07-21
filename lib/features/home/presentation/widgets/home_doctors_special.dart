@@ -14,9 +14,6 @@ class HomeDoctorsSpecial extends StatelessWidget {
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return state.maybeWhen(
-            doctorsLoading: () {
-              return const CircularProgressIndicator();
-            },
             doctorsSuccess: (doctors) {
               return ListView.builder(
                 itemCount: doctors.length,
@@ -28,6 +25,9 @@ class HomeDoctorsSpecial extends StatelessWidget {
                   );
                 },
               );
+            },
+            doctorsError: (error) {
+              return const SizedBox.shrink();
             },
             orElse: () {
               return const SizedBox.shrink();

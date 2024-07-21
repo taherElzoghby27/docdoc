@@ -15,7 +15,9 @@ class HomeState with _$HomeState {
           ResponseSpecializationsModel responseSpecializationsModel) =
       SpecializationSuccess;
   //doctors
-  const factory HomeState.doctorsLoading() = DoctorsLoading;
   const factory HomeState.doctorsSuccess(List<DoctorModel> doctors) =
       DoctorsSuccess;
+  const factory HomeState.doctorsError(ErrorHandler errorHandler) = DoctorsError;
+  //change current page
+  const factory HomeState.changeCurrent() = ChangeCurrentPage;
 }

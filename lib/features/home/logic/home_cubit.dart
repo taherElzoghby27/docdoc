@@ -1,3 +1,5 @@
+import 'package:doc_doc/core/helpers/extensions.dart';
+import 'package:doc_doc/core/networking/api_error_handler.dart';
 import 'package:doc_doc/core/networking/api_result.dart';
 import 'package:doc_doc/features/home/data/models/specializations_model.dart';
 import 'package:doc_doc/features/home/data/repo/home_repo.dart';
@@ -9,11 +11,11 @@ class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _homeRepo;
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
   List<SpecializationModel> specializations = [];
-  List<DoctorModel> doctors = [];
+  List<DoctorModel>? doctors = [];
   int currentPage = 0;
   changeCurrentPage(int id) async {
     currentPage = id;
-    await getDoctors(id: currentPage);
+    emit(const HomeState.changeCurrent());
   }
 
   //get specializations
@@ -38,15 +40,19 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   getDoctors({int id = 1}) async {
-    emit(const HomeState.doctorsLoading());
     doctors = await getSpecializationsForDoctors(id);
-    emit(HomeState.doctorsSuccess(doctors));
+    if (doctors.isNullOrEmpty()) {
+      emit(HomeState.doctorsError(ErrorHandler.handle('No Doctors Found!')));
+    } else {
+      emit(HomeState.doctorsSuccess(doctors!));
+    }
   }
 
 //filter doctors
-  Future<List<DoctorModel>> getSpecializationsForDoctors(int id) async {
-    SpecializationModel specializationsDoctors =
-        specializations.where((item) => item.id == id).first;
+  Future<List<DoctorModel>?> getSpecializationsForDoctors(
+      int specializationId) async {
+    SpecializationModel specializationsDoctors = specializations
+        .firstWhere((specialization) => specialization.id == specializationId);
     List<DoctorModel> doctorsList = specializationsDoctors.doctors;
     return doctorsList;
   }
