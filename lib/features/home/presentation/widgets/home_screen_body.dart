@@ -2,11 +2,11 @@ import 'package:doc_doc/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'doctor_speciality_bloc_builder.dart';
-import 'doctor_speciality_see_all.dart';
+import 'doctors_list/doctors_special_bloc_builder.dart';
 import 'home_blue_container.dart';
-import 'home_doctors_special.dart';
 import 'home_top_bar.dart';
+import 'specializations_list/doctor_speciality_bloc_builder.dart';
+import 'specializations_list/doctor_speciality_see_all.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});

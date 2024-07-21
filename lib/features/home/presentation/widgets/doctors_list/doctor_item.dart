@@ -1,8 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doc_doc/core/helpers/spacing.dart';
+import 'package:doc_doc/core/theming/colors.dart';
 import 'package:doc_doc/core/theming/styles.dart';
 import 'package:doc_doc/features/home/data/models/specializations_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shimmer/shimmer.dart';
 
 class DoctorItem extends StatelessWidget {
   const DoctorItem({super.key, required this.index, required this.doctor});
@@ -21,7 +25,25 @@ class DoctorItem extends StatelessWidget {
             flex: 4,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(doctor.photo),
+              child: CachedNetworkImage(
+                imageUrl: doctor.photo,
+                progressIndicatorBuilder: (context, url, downloadProgress) {
+                  return Shimmer.fromColors(
+                    baseColor: ColorsManager.lightGray,
+                    highlightColor: Colors.white,
+                    child: Container(
+                      width: 110.w,
+                      height: 95.h,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(12.0),
+                        color: Colors.white,
+                      ),
+                    ),
+                  );
+                },
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              ),
             ),
           ),
           horizontalSpace(12),

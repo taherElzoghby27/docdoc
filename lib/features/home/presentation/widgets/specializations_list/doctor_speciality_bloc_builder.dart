@@ -3,8 +3,8 @@ import 'package:doc_doc/features/home/logic/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/models/specializations_model.dart';
-import 'doctors_shimmer_loading.dart';
+import '../../../data/models/specializations_model.dart';
+import '../doctors_list/doctors_shimmer_loading.dart';
 import 'doctors_specializations_loading_shimmer.dart';
 import 'list_view_specializations.dart';
 
