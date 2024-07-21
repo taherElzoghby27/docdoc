@@ -1,12 +1,13 @@
+import 'package:doc_doc/features/home/data/models/specializations_model.dart';
 import 'package:doc_doc/features/home/logic/home_cubit.dart';
 import 'package:doc_doc/features/home/logic/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'doctor_item.dart';
+import 'doctors_list_view.dart';
 
-class HomeDoctorsSpecial extends StatelessWidget {
-  const HomeDoctorsSpecial({super.key});
+class HomeDoctorsBlocBuilder extends StatelessWidget {
+  const HomeDoctorsBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,21 +15,8 @@ class HomeDoctorsSpecial extends StatelessWidget {
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return state.maybeWhen(
-            doctorsSuccess: (doctors) {
-              return ListView.builder(
-                itemCount: doctors.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return DoctorItem(
-                    index: index,
-                    doctor: doctors[index],
-                  );
-                },
-              );
-            },
-            doctorsError: (error) {
-              return const SizedBox.shrink();
-            },
+            doctorsSuccess: successMethod,
+            doctorsError: errorMethod,
             orElse: () {
               return const SizedBox.shrink();
             },
@@ -36,5 +24,13 @@ class HomeDoctorsSpecial extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Widget errorMethod(error) {
+    return const SizedBox.shrink();
+  }
+
+  Widget successMethod(List<DoctorModel> doctors) {
+    return DoctorsListview(doctors: doctors);
   }
 }

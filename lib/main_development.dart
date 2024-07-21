@@ -29,13 +29,14 @@ void main() async {
     ),
   );
 }
+
 checkUserIfLoggedOrNot() async {
   String? token = await SharedPrefHelper.getSecuredString(
     SharedPrefKeys.userToken,
   );
-  if(token.isNullOrEmpty()){
-    isLoggedInUser=false;
-  }else{
-    isLoggedInUser=true;
+  if (token.isNullOrEmpty()) {
+    isLoggedInUser = false;
+  } else {
+    isLoggedInUser = true;
   }
 }

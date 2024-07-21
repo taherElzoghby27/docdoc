@@ -12,7 +12,7 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
   List<SpecializationModel> specializations = [];
   List<DoctorModel>? doctors = [];
-  int currentPage = 0;
+  int currentPage =1;
   changeCurrentPage(int id) async {
     currentPage = id;
     emit(const HomeState.changeCurrent());
