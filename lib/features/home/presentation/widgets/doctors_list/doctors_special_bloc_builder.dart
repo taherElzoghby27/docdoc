@@ -6,23 +6,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'doctors_list_view.dart';
 
-class HomeDoctorsBlocBuilder extends StatelessWidget {
-  const HomeDoctorsBlocBuilder({super.key});
+class DoctorsBlocBuilder extends StatelessWidget {
+  const DoctorsBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: BlocBuilder<HomeCubit, HomeState>(
-        builder: (context, state) {
-          return state.maybeWhen(
-            doctorsSuccess: successMethod,
-            doctorsError: errorMethod,
-            orElse: () {
-              return const SizedBox.shrink();
-            },
-          );
-        },
-      ),
+    return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen: (previous, current) =>
+          current is DoctorsSuccess || current is DoctorsError,
+      builder: (context, state) {
+        return state.maybeWhen(
+          doctorsSuccess: successMethod,
+          doctorsError: errorMethod,
+          orElse: () {
+            return const SizedBox.shrink();
+          },
+        );
+      },
     );
   }
 

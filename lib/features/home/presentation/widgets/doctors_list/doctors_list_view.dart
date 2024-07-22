@@ -12,15 +12,17 @@ class DoctorsListview extends StatelessWidget {
   final List<DoctorModel> doctors;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: doctors.length,
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        return DoctorItem(
-          index: index,
-          doctor: doctors[index],
-        );
-      },
+    return Expanded(
+      child: ListView.builder(
+        itemCount: doctors.length,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return DoctorItem(
+            index: index,
+            doctor: doctors[index],
+          );
+        },
+      ),
     );
   }
 }

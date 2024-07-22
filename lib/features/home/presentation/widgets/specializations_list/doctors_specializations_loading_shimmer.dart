@@ -11,10 +11,11 @@ class SpecialityShimmerLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100.h,
+      height: 150.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 8,
+        shrinkWrap: true,
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 24.w),

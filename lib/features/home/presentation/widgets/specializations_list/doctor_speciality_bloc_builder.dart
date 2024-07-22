@@ -1,3 +1,4 @@
+import 'package:doc_doc/core/helpers/spacing.dart';
 import 'package:doc_doc/features/home/logic/home_cubit.dart';
 import 'package:doc_doc/features/home/logic/home_state.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +15,13 @@ class DoctorSpecialityBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
-      buildWhen: (context, state) =>
-          state is SpecializationLoading ||
-          state is SpecializationSuccess ||
-          state is SpecializationError,
+      buildWhen: (previous, current) =>
+          current is SpecializationLoading ||
+          current is SpecializationSuccess ||
+          current is SpecializationError,
       builder: (context, state) {
         return state.maybeWhen(
-          specializationsLoading: loadingMethod,
+          specializationsLoading: () => loadingMethod(context),
           specializationsSuccess: successMethod,
           specializationsError: errorMethod,
           orElse: () {
@@ -43,12 +44,15 @@ class DoctorSpecialityBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget loadingMethod() {
-    return const Column(
-      children: [
-        SpecialityShimmerLoading(),
-        DoctorsShimmerLoading(),
-      ],
+  Widget loadingMethod(context) {
+    return Expanded(
+      child: Column(
+        children: [
+          const SpecialityShimmerLoading(),
+          verticalSpace(8),
+          const DoctorsShimmerLoading(),
+        ],
+      ),
     );
   }
 }

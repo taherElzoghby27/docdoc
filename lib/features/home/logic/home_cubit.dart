@@ -12,7 +12,7 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
   List<SpecializationModel> specializations = [];
   List<DoctorModel>? doctors = [];
-  int currentPage =1;
+  int currentPage = 1;
   changeCurrentPage(int id) async {
     currentPage = id;
     emit(const HomeState.changeCurrent());
@@ -50,7 +50,8 @@ class HomeCubit extends Cubit<HomeState> {
 
 //filter doctors
   Future<List<DoctorModel>?> getSpecializationsForDoctors(
-      int specializationId) async {
+    int specializationId,
+  ) async {
     SpecializationModel specializationsDoctors = specializations
         .firstWhere((specialization) => specialization.id == specializationId);
     List<DoctorModel> doctorsList = specializationsDoctors.doctors;

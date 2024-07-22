@@ -29,7 +29,7 @@ class HomeScreenBody extends StatelessWidget {
           const DoctorSpecialitySeeAll(),
           const DoctorSpecialityBlocBuilder(),
           verticalSpace(12.h),
-          const HomeDoctorsBlocBuilder(),
+          const DoctorsBlocBuilder(),
         ],
       ),
     );

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
@@ -13,7 +12,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: 8,
         itemBuilder: (context, index) {
           return Container(
             margin: EdgeInsets.only(bottom: 16.h),
@@ -24,7 +23,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
                   highlightColor: Colors.white,
                   child: Container(
                     width: 110.w,
-                    height: 120.h,
+                    height: 90.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(12.0),
@@ -86,9 +85,3 @@ class DoctorsShimmerLoading extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
