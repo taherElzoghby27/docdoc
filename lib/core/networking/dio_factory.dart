@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:doc_doc/core/helpers/constants.dart';
+import 'package:doc_doc/core/helpers/shared_pref.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -26,7 +28,13 @@ class DioFactory {
   static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
+      'Authorization':
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
+  }
+
+  static void setTokenToHeaders(String token) {
+    dio?.options.headers['Authorization'] = 'Bearer $token';
   }
 
   static void addDioInterceptor() {
