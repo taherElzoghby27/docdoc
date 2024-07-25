@@ -1,9 +1,10 @@
-import 'package:doc_doc/core/helpers/const_strings.dart';
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/core/theming/colors.dart';
-import 'package:doc_doc/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../core/helpers/const_strings.dart';
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/styles.dart';
 
 class ValidatePassword extends StatelessWidget {
   const ValidatePassword({

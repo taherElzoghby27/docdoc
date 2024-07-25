@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/core/theming/colors.dart';
-import 'package:doc_doc/core/theming/styles.dart';
-import 'package:doc_doc/features/home/data/models/specializations_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/colors.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../data/models/specializations_model.dart';
 
 class DoctorItem extends StatelessWidget {
   const DoctorItem({super.key, required this.index, required this.doctor});

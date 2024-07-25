@@ -1,9 +1,9 @@
-import 'package:doc_doc/features/home/data/models/specializations_model.dart';
-import 'package:doc_doc/features/home/logic/home_cubit.dart';
-import 'package:doc_doc/features/home/logic/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../data/models/specializations_model.dart';
+import '../../../logic/home_cubit.dart';
+import '../../../logic/home_state.dart';
 import 'doctors_list_view.dart';
 
 class DoctorsBlocBuilder extends StatelessWidget {

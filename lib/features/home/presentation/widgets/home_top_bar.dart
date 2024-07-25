@@ -1,9 +1,10 @@
-import 'package:doc_doc/core/theming/colors.dart';
-import 'package:doc_doc/core/theming/font_weight_helper.dart';
-import 'package:doc_doc/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/font_weight_helper.dart';
+import '../../../../core/theming/styles.dart';
 
 class HomeTopBar extends StatelessWidget {
   const HomeTopBar({super.key});

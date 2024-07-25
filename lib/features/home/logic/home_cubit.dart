@@ -1,10 +1,10 @@
-import 'package:doc_doc/core/helpers/extensions.dart';
-import 'package:doc_doc/core/networking/api_error_handler.dart';
-import 'package:doc_doc/core/networking/api_result.dart';
-import 'package:doc_doc/features/home/data/models/specializations_model.dart';
-import 'package:doc_doc/features/home/data/repo/home_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/helpers/extensions.dart';
+import '../../../core/networking/api_error_handler.dart';
+import '../../../core/networking/api_result.dart';
+import '../data/models/specializations_model.dart';
+import '../data/repo/home_repo.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {

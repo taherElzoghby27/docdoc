@@ -1,7 +1,7 @@
-import 'package:doc_doc/features/home/data/models/specializations_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../data/models/specializations_model.dart';
 import 'specialization_item.dart';
 
 class ListviewSpecializations extends StatelessWidget {

@@ -1,12 +1,12 @@
-import 'package:doc_doc/core/helpers/constants.dart';
-import 'package:doc_doc/core/helpers/extensions.dart';
-import 'package:doc_doc/core/helpers/shared_pref.dart';
-import 'package:doc_doc/core/routing/app_routes.dart';
-import 'package:doc_doc/doc_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/di/dependency_injection.dart';
+import 'core/helpers/constants.dart';
+import 'core/helpers/extensions.dart';
+import 'core/helpers/shared_pref.dart';
+import 'core/routing/app_routes.dart';
+import 'doc_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

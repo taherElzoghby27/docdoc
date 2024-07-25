@@ -1,6 +1,7 @@
-import 'package:doc_doc/core/helpers/const_strings.dart';
-import 'package:doc_doc/core/theming/styles.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/helpers/const_strings.dart';
+import '../../../../core/theming/styles.dart';
 
 class SectionDontHaveAccount extends StatelessWidget {
   const SectionDontHaveAccount({super.key});

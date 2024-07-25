@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:doc_doc/features/sign_up/data/models/sign_up_request_body.dart';
-import 'package:doc_doc/features/sign_up/data/repos/sign_up_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../data/models/sign_up_request_body.dart';
+import '../../data/repos/sign_up_repo.dart';
 
 part 'sign_up_cubit.freezed.dart';
 part 'sign_up_state.dart';

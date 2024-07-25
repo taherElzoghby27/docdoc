@@ -1,7 +1,7 @@
-import 'package:doc_doc/core/networking/api_error_handler.dart';
-import 'package:doc_doc/core/networking/api_result.dart';
-import 'package:doc_doc/features/home/data/data_source/home_api_service.dart';
-import 'package:doc_doc/features/home/data/models/specializations_model.dart';
+import '../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_result.dart';
+import '../data_source/home_api_service.dart';
+import '../models/specializations_model.dart';
 
 class HomeRepo {
   final HomeApiService _homeApiService;

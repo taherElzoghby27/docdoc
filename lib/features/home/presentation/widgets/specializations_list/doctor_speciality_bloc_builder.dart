@@ -1,10 +1,10 @@
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/features/home/logic/home_cubit.dart';
-import 'package:doc_doc/features/home/logic/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/helpers/spacing.dart';
 import '../../../data/models/specializations_model.dart';
+import '../../../logic/home_cubit.dart';
+import '../../../logic/home_state.dart';
 import '../doctors_list/doctors_shimmer_loading.dart';
 import 'doctors_specializations_loading_shimmer.dart';
 import 'list_view_specializations.dart';

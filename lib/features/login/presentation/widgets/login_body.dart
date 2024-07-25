@@ -1,12 +1,12 @@
-import 'package:doc_doc/core/helpers/const_strings.dart';
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/core/theming/styles.dart';
-import 'package:doc_doc/core/widgets/custom_button.dart';
-import 'package:doc_doc/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/helpers/const_strings.dart';
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/styles.dart';
+import '../../../../core/widgets/custom_button.dart';
+import '../../logic/cubit/login_cubit.dart';
 import 'section_already_have_an_acount.dart';
 import 'section_email_and_password.dart';
 import 'section_terms_and_conditions.dart';

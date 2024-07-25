@@ -1,9 +1,10 @@
-import 'package:doc_doc/core/helpers/const_photos.dart';
-import 'package:doc_doc/core/helpers/const_strings.dart';
-import 'package:doc_doc/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../../../core/helpers/const_photos.dart';
+import '../../../../core/helpers/const_strings.dart';
+import '../../../../core/theming/styles.dart';
 
 class DocdocLogoSection extends StatelessWidget {
   const DocdocLogoSection({super.key});

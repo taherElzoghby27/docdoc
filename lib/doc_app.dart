@@ -1,9 +1,10 @@
-import 'package:doc_doc/core/helpers/constants.dart';
-import 'package:doc_doc/core/routing/app_routes.dart';
-import 'package:doc_doc/core/routing/routes.dart';
-import 'package:doc_doc/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'core/helpers/constants.dart';
+import 'core/routing/app_routes.dart';
+import 'core/routing/routes.dart';
+import 'core/theming/colors.dart';
 
 class DocApp extends StatelessWidget {
   const DocApp({super.key, required this.appRouter});

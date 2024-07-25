@@ -2,14 +2,14 @@
     "version": "0.2.0",//version for setup configuration file
     "configurations": [
       {
-        "name": "doc doc development",//flavor name
+        "name": "doc doc app development",//flavor name
         "request": "launch",//launch application
         "type": "dart",
         "program": "lib/main_development.dart",//file for run
         "args": ["--flavor", "Development", "--target", "lib/main_development.dart" ]//how to run->flutter run --(release or debug) -t lib/main_development.dart --flavor (production or development)
       },
       {
-        "name": "doc doc production",
+        "name": "doc doc app production",
         "request": "launch",
         "type": "dart",
         "program": "lib/main_production.dart",
